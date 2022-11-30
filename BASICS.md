@@ -48,6 +48,37 @@ It's a created item in config_items
 - isTemporary
 If is true never will be saved
 
+# I want to make more and more items !
+
+- Okey then find the "config_items"
+- And make your custom item like that
+```
+  ["pasta"] = {    -- Our custom item
+        ["item"] = {
+            _id = "pasta",
+            _name = "Pasta",
+            _parent = "",
+            _type = "Item",
+            _data = {
+                Name = "Pasta",
+                Label = "Pasta La Wista",
+                Description = "Its so delicous!",
+                Width = 1,
+                Height = 1,
+                Weight = 0.5,
+                ExamineTime = 1.0,
+                Backgroundcolor = "black",
+                ItemSound = "gear_generic",
+                Type = "Item",
+                MaxStack = 1,
+                Grids = {},
+                Itemimage = "icons/pasta.png",
+            }
+        }
+    },
+```
+
+
 # I have items in my core and i want to convert! (QB-ESX)
 
 - Find resources/server/items-convert.lua
@@ -65,3 +96,8 @@ Okey, keybindings so easy
 - Research containers ( Middle mouse button to UNSEARCHED text or left click to Search )
 - Hotbar/Fastuse ( Click 3-9 keys in keyboard 1-2 for first and second weapon never be manually changed! )
 - Context Menu/Attachment Menu ( Right click to item )
+
+# I have custom images per item!
+Okey, this so easy too!
+- Locate html > classes.js
+- Find "GetItemImage" and customize with your own
