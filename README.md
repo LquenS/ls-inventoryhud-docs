@@ -48,7 +48,7 @@ function self.removeInventoryItem(name, count, metadata, slot)
 end
 ```
 
-#If you finished this thing, last thing left clothing!
+# If you finished this thing, last thing left clothing!
 
 ## QB
 
