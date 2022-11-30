@@ -21,7 +21,7 @@ end
 
 - You cannot find any "AddItem" & "RemoveItem"
 - Find "QBCore.Player.CreatePlayer"
-- Find "self.Functions = {}" and add this functions,
+- Find "self.Functions = {}" and add this functions (!!YOU NEED TO ADD BOTTOM OF self.Functions IF YOU DONT YOU GET ERRORS!!),
 ```
 function self.Functions.AddItem(item, amount, slot, info)
 	exports["ls-inventoryhud"]:AddItem(self.PlayerData.source, item, amount, info)
