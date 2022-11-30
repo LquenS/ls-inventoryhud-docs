@@ -1,3 +1,5 @@
+ESX & QBCORE is stable, if you have any error check your framework or setup!
+
 How can i implement my framework?
 
 # QB
