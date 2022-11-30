@@ -48,9 +48,9 @@ function self.removeInventoryItem(name, count, metadata, slot)
 end
 ```
 
-If you finished this thing, last thing left clothing!
+#If you finished this thing, last thing left clothing!
 
-# QB
+## QB
 
 - Find your clothing script (probably qb-clothing)
 - After that find you skin saving function add this
@@ -58,7 +58,7 @@ If you finished this thing, last thing left clothing!
 TriggerEvent("ls-inventoryhud:c:giveClothesAsItem", skinData, previousSkinData, false) (skinData is currently skin, previousSkinData oldest skin)
 ```
 
-## If you have qb-clothing
+### If you have qb-clothing
 
 - Find "SaveSkin" and replace with that
 ```
@@ -72,7 +72,7 @@ function SaveSkin()
 end
 ```
 
-# ESX
+## ESX
 
 - Find your clothing script (probably esx-skin)
 - After that find you skin saving function add this
@@ -80,7 +80,7 @@ end
 TriggerEvent("ls-inventoryhud:c:giveClothesAsItem", skin, lastSkin, false) (skinData is currently skin, previousSkinData oldest skin)
 ```
 
-## If you have esx-skin
+### If you have esx-skin
 
 - Find "OpenSaveableMenu" and replace with that
 ```
