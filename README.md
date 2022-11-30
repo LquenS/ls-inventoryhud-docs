@@ -206,3 +206,11 @@ function OpenMenu(submitCb, cancelCb, restrict)
     end)
 end
 ```
+
+# Ayo, clothing not works fine in esx!
+I know if you want to works fully
+- Locate skinchanger > client > main.lua
+- Find "arms" and replace with that
+`{label = _U('arms'),                  name = 'arms_1',          value = 0,  min = 0,  zoomOffset = 0.75,  camOffset = 0.15},`
+
+- Replace all "arms" with "arms_1"
