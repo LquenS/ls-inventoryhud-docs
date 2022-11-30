@@ -84,25 +84,125 @@ TriggerEvent("ls-inventoryhud:c:giveClothesAsItem", skin, lastSkin, false) (skin
 
 ### If you have esx-skin
 
-- Find "OpenSaveableMenu" and replace with that
+- Find "OpenMenu" and replace with that
 ```
-function OpenSaveableMenu(submitCb, cancelCb, restrict)
+function OpenMenu(submitCb, cancelCb, restrict)
+    local playerPed = PlayerPedId()
+
     TriggerEvent('skinchanger:getSkin', function(skin) lastSkin = skin end)
+    TriggerEvent('skinchanger:getData', function(components, maxVals)
+        local elements = {}
+        local _components = {}
 
-    OpenMenu(function(data, menu)
-        menu.close()
-        DeleteSkinCam()
-
-        TriggerEvent('skinchanger:getSkin', function(skin)
-            TriggerServerEvent('esx_skin:save', skin)
-
-            if submitCb ~= nil then
-                submitCb(data, menu)
+        -- Restrict menu
+        if restrict == nil then
+            for i=1, #components, 1 do
+                _components[i] = components[i]
             end
-			
-			TriggerEvent("ls-inventoryhud:c:giveClothesAsItem", skin, lastSkin, false)
-        end)
+        else
+            for i=1, #components, 1 do
+                local found = false
 
-    end, cancelCb, restrict)
+                for j=1, #restrict, 1 do
+                    if components[i].name == restrict[j] then
+                        found = true
+                    end
+                end
+
+                if found then
+                    table.insert(_components, components[i])
+                end
+            end
+        end
+        -- Insert elements
+        for i=1, #_components, 1 do
+            local value = _components[i].value
+            local componentId = _components[i].componentId
+
+            if componentId == 0 then
+                value = GetPedPropIndex(playerPed, _components[i].componentId)
+            end
+
+            local data = {
+                label = _components[i].label,
+                name = _components[i].name,
+                value = value,
+                min = _components[i].min,
+                textureof = _components[i].textureof,
+                zoomOffset= _components[i].zoomOffset,
+                camOffset = _components[i].camOffset,
+                type = 'slider'
+            }
+
+            for k,v in pairs(maxVals) do
+                if k == _components[i].name then
+                    data.max = v
+                    break
+                end
+            end
+
+            table.insert(elements, data)
+        end
+
+        CreateSkinCam()
+        zoomOffset = _components[1].zoomOffset
+        camOffset = _components[1].camOffset
+
+        ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'skin', {
+            title = _U('skin_menu'),
+            align = 'bottom-left',
+            elements = elements
+        }, function(data, menu)
+			TriggerEvent('skinchanger:getSkin', function(skin) 
+				TriggerEvent("ls-inventoryhud:c:giveClothesAsItem", skin, lastSkin, false) 
+			end)
+            TriggerEvent('skinchanger:getSkin', function(skin) lastSkin = skin end)
+
+            submitCb(data, menu)
+            DeleteSkinCam()
+        end, function(data, menu)
+            menu.close()
+            DeleteSkinCam()
+            TriggerEvent('skinchanger:loadSkin', lastSkin)
+
+            if cancelCb ~= nil then
+                cancelCb(data, menu)
+            end
+        end, function(data, menu)
+            local skin, components, maxVals
+
+            TriggerEvent('skinchanger:getSkin', function(getSkin) skin = getSkin end)
+
+            zoomOffset = data.current.zoomOffset
+            camOffset = data.current.camOffset
+
+            if skin[data.current.name] ~= data.current.value then
+                -- Change skin element
+                TriggerEvent('skinchanger:change', data.current.name, data.current.value)
+
+                -- Update max values
+                TriggerEvent('skinchanger:getData', function(comp, max)
+                    components, maxVals = comp, max
+                end)
+
+                local newData = {}
+
+                for i=1, #elements, 1 do
+                    newData = {}
+                    newData.max = maxVals[elements[i].name]
+
+                    if elements[i].textureof ~= nil and data.current.name == elements[i].textureof then
+                        newData.value = 0
+                    end
+
+                    menu.update({name = elements[i].name}, newData)
+                end
+
+                menu.refresh()
+            end
+        end, function(data, menu)
+            DeleteSkinCam()
+        end)
+    end)
 end
 ```
