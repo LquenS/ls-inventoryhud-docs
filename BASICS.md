@@ -77,7 +77,15 @@ If is true never will be saved
         }
     },
 ```
-
+## What is mean all variables?
+- \_id
+Is mean item name for given (/giveitem 1 pasta) its needs to same with key \["pasta"\]
+- \_parent
+Not important make empty
+- \_type
+If not inventory or like that just make Item
+- Grids
+Only for stashes or like that
 
 # I have items in my core and i want to convert! (QB-ESX)
 
