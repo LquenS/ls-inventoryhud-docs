@@ -109,3 +109,106 @@ Okey, keybindings so easy
 Okey, this so easy too!
 - Locate html > classes.js
 - Find "GetItemImage" and customize with your own
+
+# I made custom clothing but its buggy!?
+- Make sure you created item
+- Find html/clothing.css
+```
+.container-grid-youritemname {
+    position: absolute;
+    width: 250px;
+    height: 325px;
+
+    right: 10px;
+    top: 390px;
+}
+
+.grid-parent-youritemname-yourgridname {
+    position: absolute;
+    left: 0px;
+    top: 57px;
+}
+```
+## If you didn't understand here a little example
+
+- Find config_items.lua,
+- After that we need to create a clothing!
+```
+    ["myawesomebag"] = {
+        ["item"] = {
+            _id = "myawesomebag",
+            _name = "sport_backpack",
+            _parent = "c6jgbwjs9tc2vb8gtpwe7rywe",
+            _type = "Item",
+            _data = {
+                Name = "Backpack",
+                AttachableSlot = "backpack",
+                Label = "Its my bag so awesome",
+                Description = "",
+                Width = 4,
+                Height = 3,
+                Weight = 1.5,
+                ExamineTime = 3.0,
+                Backgroundcolor = "black",
+                ItemSound = "gear_backpack",
+                Type = "container",
+                MaxStack = 1,
+                Grids = {
+                    [0] = {
+                        _name ="mybestgrid",
+                        _id ="isntimportant",
+                        _parent ="myawesomebag",
+                        cellsH = 8,
+                        cellsV = 4,
+                    },
+                },
+                Itemimage = "icons/bag.png",
+            }
+        }
+    },
+```
+- Okey we created item we need to implement to our UI!
+- Find html/clothing.css
+```
+.container-grid-myawesomebag {
+    position: absolute;
+    width: 250px;
+    height: 325px;
+
+    right: 10px;
+    top: 390px;
+}
+
+.grid-parent-myawesomebag-mybestgrid {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+```
+- And done we made custom clothing! If you want use this clothing some clothes here,
+- Find resources/client/NUI.lua
+- Search "if givinItem == "backpack" then"
+- Edit freely!
+
+### If you didn't understand here a little example
+- We already created a bag if not make one,
+- I want to customize bag 85!
+```
+                if givinItem == "backpack" then
+                    if (itemData == 40 or itemData == 41 or itemData == 44 or itemData == 45 or itemData == 81 or itemData == 82 or itemData == 86) then
+                        givinItem = "bag1"
+                    elseif (itemData == 85)
+                        givinItem = "myawesomebag"
+                    end
+```
+- And done! 
+- If you using QB 
+```
+                if givinItem == "backpack" then
+                    if (itemData.item == 40 or itemData.item == 41 or itemData.item == 44 or itemData.item == 45 or itemData.item == 81 or itemData.item == 82 or itemData.item == 86) then
+                        givinItem = "bag1"
+                    elseif (itemData == 85)
+                        givinItem = "myawesomebag"
+                    end
+```
+- Done for QB too!
