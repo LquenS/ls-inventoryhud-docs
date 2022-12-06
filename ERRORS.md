@@ -1,7 +1,14 @@
 I have errors help me!!?
 
+# BEFORE CHECKING ERRORS MAKE SURE YOU DO THAT!
+- Make sure you inventory name is "ls-inventoryhud"
+- Make sure you implemented clothing thing to esx_skin(or your script)
+- Make sure you installed sql file
+- Make sure you are using latest version of inventory
+
+
 # config_s ERROR
-- You probably get config_s line 19 error. It was fixed, ask the developer for the new version.
+- It was fixed, ask the developer for the new version.
 
 
 # MY INVENTORY DOESN'T WORKING?
