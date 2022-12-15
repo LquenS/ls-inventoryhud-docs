@@ -104,6 +104,7 @@ Okey, keybindings so easy
 - Research containers ( Middle mouse button to UNSEARCHED text or left click to Search )
 - Hotbar/Fastuse ( Click 3-9 keys in keyboard 1-2 for first and second weapon never be manually changed! )
 - Context Menu/Attachment Menu ( Right click to item )
+- Item Split ( Start dragging a item and hold shift, finally drop the grid, Split thing will be appear on screen. )
 
 # I have custom images per item!
 Okey, this so easy too!
@@ -212,3 +213,23 @@ Okey, this so easy too!
                     end
 ```
 - Done for QB too!
+
+# I WANT TO SHOP
+
+```    local items = {
+        ["kurkakola"] = {
+            amount = 50,
+            price = 12500,
+        },
+        ["sandwich"] = {
+            amount = 5000,
+            price = 50,
+        }
+    }
+    OpenShopInventory("SHOP-WEAPONSHOP", "shop1", true, items)
+```
+## What this mean this variables!
+- SHOP-WEAPONSHOP doesnt important thing you can rename noting will be change ( ! IMPORTANT ! DO NOT DELETE SHOP- )
+- shop1 is Inventory name in config_items.lua you can customize inventory from location
+- true is equals temporary, do not change this.
+- items, items is shop items you can edit freely. You can add or you can remove items, items created with info (DO NOT MORE INFO ITEMS MORE THAN 1 LIKE WEAPONS)
