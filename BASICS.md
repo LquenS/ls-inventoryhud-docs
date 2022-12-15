@@ -241,4 +241,4 @@ Okey, this so easy too!
 ### ShopItems 
 - ShopItems is shop items you can edit freely. 
 - You can add or you can remove items, items created with info 
-- (DO NOT MORE INFO ITEMS MORE THAN 1 LIKE WEAPONS)
+- (DO NOT MORE INFO ITEMS AMOUNT MORE THAN 1 LIKE WEAPONS)
