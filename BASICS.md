@@ -216,7 +216,8 @@ Okey, this so easy too!
 
 # I WANT TO SHOP
 
-```    local items = {
+```
+    local ShopItems = {
         ["kurkakola"] = {
             amount = 50,
             price = 12500,
@@ -226,10 +227,18 @@ Okey, this so easy too!
             price = 50,
         }
     }
-    OpenShopInventory("SHOP-WEAPONSHOP", "shop1", true, items)
+    exports["ls-inventoryhud"]:ShopInventory("SHOP-XXXXX", "shop1", temporary, ShopItems)
 ```
 ## What this mean this variables!
-- SHOP-WEAPONSHOP doesnt important thing you can rename noting will be change ( ! IMPORTANT ! DO NOT DELETE SHOP- )
-- shop1 is Inventory name in config_items.lua you can customize inventory from location
-- true is equals temporary, do not change this.
-- items, items is shop items you can edit freely. You can add or you can remove items, items created with info (DO NOT MORE INFO ITEMS MORE THAN 1 LIKE WEAPONS)
+### SHOP-XXXXXX 
+-Doesnt important thing you can rename noting will be change 
+- ( ! IMPORTANT ! DO NOT DELETE SHOP- )
+### Shop1
+- Is Inventory name in config_items.lua you can customize inventory from location.
+- Its not important and big thing!
+### Temporary 
+- Is equals temporary, make "true"!
+### ShopItems 
+- ShopItems is shop items you can edit freely. 
+- You can add or you can remove items, items created with info 
+- (DO NOT MORE INFO ITEMS MORE THAN 1 LIKE WEAPONS)
