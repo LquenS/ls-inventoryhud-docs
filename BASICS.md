@@ -231,7 +231,7 @@ Okey, this so easy too!
 ```
 ## What this mean this variables!
 ### SHOP-XXXXXX 
--Doesnt important thing you can rename noting will be change 
+- Doesnt important thing you can rename noting will be change 
 - ( ! IMPORTANT ! DO NOT DELETE SHOP- )
 ### Shop1
 - Is Inventory name in config_items.lua you can customize inventory from location.
