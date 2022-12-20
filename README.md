@@ -48,7 +48,7 @@ end
 
 ## ! IF YOUR VERSION NEWEST OF QB-CORE !
 
-- You cannot find any "AddItem" & "RemoveItem"
+- You cannot find any "AddItem" & "RemoveItem" & "GetItemByName" & "GetItemsByName"
 - Find "QBCore.Player.CreatePlayer"
 - Find "self.Functions = {}" and add this functions (!!YOU NEED TO ADD BOTTOM OF self.Functions IF YOU DONT YOU GET ERRORS!!),
 ```
