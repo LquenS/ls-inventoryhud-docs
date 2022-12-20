@@ -19,6 +19,33 @@ function self.Functions.RemoveItem(item, amount, id)
 end
 ```
 
+- After doing this find "GetItemByName" and replace with that
+```
+function self.Functions.GetItemByName(item)
+	item = tostring(item):lower()
+		
+	for k ,v in pairs ( exports["ls-inventoryhud"]:GetItems(self.PlayerData.source) ) do
+		if v._tpl == item then
+			return v
+		end
+	end
+end
+```
+
+- After doing this find "GetItemsByName" and replace with that
+```
+function self.Functions.GetItemsByName(item)
+	item = tostring(item):lower()
+	local items = {}
+	for k ,v in pairs ( exports["ls-inventoryhud"]:GetItems(self.PlayerData.source) ) do
+		if v._tpl == item then
+			items[#items+1] = v
+		end
+	end
+        return items
+end
+```
+
 ## ! IF YOUR VERSION NEWEST OF QB-CORE !
 
 - You cannot find any "AddItem" & "RemoveItem"
@@ -31,6 +58,27 @@ end
 
 function self.Functions.RemoveItem(item, amount, id)
 	return exports["ls-inventoryhud"]:RemoveItem(self.PlayerData.source, id, amount)
+end
+
+function self.Functions.GetItemByName(item)
+	item = tostring(item):lower()
+		
+	for k ,v in pairs ( exports["ls-inventoryhud"]:GetItems(self.PlayerData.source) ) do
+		if v._tpl == item then
+			return v
+		end
+	end
+end
+
+function self.Functions.GetItemsByName(item)
+	item = tostring(item):lower()
+	local items = {}
+	for k ,v in pairs ( exports["ls-inventoryhud"]:GetItems(self.PlayerData.source) ) do
+		if v._tpl == item then
+			items[#items+1] = v
+		end
+	end
+        return items
 end
 ```
 
@@ -47,6 +95,17 @@ end
 ```
 function self.removeInventoryItem(name, count, metadata, slot)
 	exports["ls-inventoryhud"]:RemoveItem(self.source, name, count)
+end
+```
+
+- After doing this find "getInventoryItem" and replace with that
+```
+function self.getInventoryItem(name, metadata)
+	for k,v in ipairs( exports["ls-inventoryhud"]:GetItems(self.PlayerData.source) ) do
+		if v._tpl == name then
+			return v
+		end
+	end
 end
 ```
 
