@@ -38,7 +38,7 @@ Hello, this docs its teaching basics of inventory!
 ```
 - Add this thing and customize with yourself!
 ```
-exports["ls-inventoryhud"]:OpenCustomInventory(ourinventoryid, inventory_item_name, isTemporary)
+exports["ls-inventoryhud"]:CustomInventory(ourinventoryid, inventory_item_name, isTemporary)
 ```
 ## What is mean this variables?
 - ourinventoryid
