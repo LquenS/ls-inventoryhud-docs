@@ -101,7 +101,7 @@ end
 - After doing this find "getInventoryItem" and replace with that
 ```
 function self.getInventoryItem(name, metadata)
-	for k,v in ipairs( exports["ls-inventoryhud"]:GetItems(self.PlayerData.source) ) do
+	for k,v in ipairs( exports["ls-inventoryhud"]:GetItems(self.source) ) do
 		if v._tpl == name then
 			return v
 		end
