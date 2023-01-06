@@ -94,7 +94,7 @@ end
 - After doing this find "removeInventoryItem" and replace with that
 ```
 function self.removeInventoryItem(name, count, metadata, slot)
-	local foundItem = exports["ls-inventoryhud"]:GetItem(self.PlayerData.source, name)
+	local foundItem = exports["ls-inventoryhud"]:GetItem(self.source, name)
 	if foundItem ~= nil then
 		exports["ls-inventoryhud"]:RemoveItem(self.source, name, count)
 	else
