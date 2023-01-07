@@ -5,6 +5,7 @@ I have errors help me!!?
 - Make sure you implemented clothing thing to esx_skin(or your script)
 - Make sure you installed sql file
 - Make sure you are using latest version of inventory
+- Make sure you configured `config.lua, config_s.lua, config_c.lua` to your server
 
 
 # config_s ERROR
