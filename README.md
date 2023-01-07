@@ -98,7 +98,10 @@ function self.removeInventoryItem(name, count, metadata, slot)
 	if foundItem ~= nil then
 		exports["ls-inventoryhud"]:RemoveItem(self.source, name, count)
 	else
-		exports["ls-inventoryhud"]:RemoveItem(self.source, self.getInventoryItem(name)._id, count)
+		local findItem = self.getInventoryItem(name)
+		if findItem ~= nil then
+			exports["ls-inventoryhud"]:RemoveItem(self.source, findItem._id, count)
+		end
 	end
 end
 ```
@@ -111,6 +114,7 @@ function self.getInventoryItem(name, metadata)
 			return v
 		end
 	end
+	return nil
 end
 ```
 
