@@ -14,9 +14,18 @@ end
 
 - After doing this find "RemoveItem" and replace with that
 ```
-function self.Functions.RemoveItem(item, amount, id)
-	return exports["ls-inventoryhud"]:RemoveItem(self.PlayerData.source, id, amount)
-end
+    function self.Functions.RemoveItem(item, amount, id)
+		local getItem = exports["ls-inventoryhud"]:GetItem(self.PlayerData.source, id)
+		if getItem ~= nil then
+			return exports["ls-inventoryhud"]:RemoveItem(self.PlayerData.source, id, amount)
+		else
+			local newItem = self.Functions.GetItemByName(name)
+			if newItem ~= nil then
+				return exports["ls-inventoryhud"]:RemoveItem(self.PlayerData.source, newItem._id, amount)
+			end
+		end
+		return false
+    end
 ```
 
 - After doing this find "GetItemByName" and replace with that
